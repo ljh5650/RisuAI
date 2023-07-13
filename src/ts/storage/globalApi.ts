@@ -389,21 +389,21 @@ export async function loadData() {
                 if(isDriverMode){
                     return
                 }
-                if(navigator.serviceWorker){
-                    usingSw = true
-                    await navigator.serviceWorker.register("/sw.js", {
-                        scope: "/"
-                    });
+                // if(navigator.serviceWorker){
+                //     usingSw = true
+                //     await navigator.serviceWorker.register("/sw.js", {
+                //         scope: "/"
+                //     });
 
-                    await sleep(100)
-                    const da = await fetch('/sw/init')
-                    if(!(da.status >= 200 && da.status < 300)){
-                        location.reload()
-                    }
-                }
-                else{
+                //     await sleep(100)
+                //     const da = await fetch('/sw/init')
+                //     if(!(da.status >= 200 && da.status < 300)){
+                //         location.reload()
+                //     }
+                // }
+                // else{
                     usingSw = false
-                }
+                // }
                 checkOldDomain()
                 if(get(DataBase).didFirstSetup){
                     characterHubImport()
